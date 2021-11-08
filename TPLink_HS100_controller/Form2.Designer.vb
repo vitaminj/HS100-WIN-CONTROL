@@ -43,9 +43,10 @@ Partial Class Form2
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(323, 448)
+        Me.Button1.Location = New System.Drawing.Point(406, 535)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(115, 23)
+        Me.Button1.Size = New System.Drawing.Size(153, 28)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "Save"
         Me.Button1.UseVisualStyleBackColor = True
@@ -59,16 +60,18 @@ Partial Class Form2
         Me.Panel1.Controls.Add(Me.comboDeviceSettingList)
         Me.Panel1.Controls.Add(Me.turn)
         Me.Panel1.Controls.Add(Me.lblQueueturn)
-        Me.Panel1.Location = New System.Drawing.Point(15, 345)
+        Me.Panel1.Location = New System.Drawing.Point(20, 409)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(423, 38)
+        Me.Panel1.Size = New System.Drawing.Size(551, 47)
         Me.Panel1.TabIndex = 22
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(356, 6)
+        Me.Button2.Location = New System.Drawing.Point(475, 7)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(48, 23)
+        Me.Button2.Size = New System.Drawing.Size(64, 28)
         Me.Button2.TabIndex = 26
         Me.Button2.Text = "Add"
         Me.Button2.UseVisualStyleBackColor = True
@@ -78,9 +81,10 @@ Partial Class Form2
         Me.comboOnOff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.comboOnOff.FormattingEnabled = True
         Me.comboOnOff.Items.AddRange(New Object() {"Off", "On"})
-        Me.comboOnOff.Location = New System.Drawing.Point(288, 8)
+        Me.comboOnOff.Location = New System.Drawing.Point(384, 10)
+        Me.comboOnOff.Margin = New System.Windows.Forms.Padding(4)
         Me.comboOnOff.Name = "comboOnOff"
-        Me.comboOnOff.Size = New System.Drawing.Size(52, 21)
+        Me.comboOnOff.Size = New System.Drawing.Size(68, 24)
         Me.comboOnOff.TabIndex = 22
         '
         'comboEvent
@@ -88,27 +92,30 @@ Partial Class Form2
         Me.comboEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.comboEvent.FormattingEnabled = True
         Me.comboEvent.Items.AddRange(New Object() {"Startup", "Shutdown"})
-        Me.comboEvent.Location = New System.Drawing.Point(30, 8)
+        Me.comboEvent.Location = New System.Drawing.Point(40, 10)
+        Me.comboEvent.Margin = New System.Windows.Forms.Padding(4)
         Me.comboEvent.Name = "comboEvent"
-        Me.comboEvent.Size = New System.Drawing.Size(71, 21)
+        Me.comboEvent.Size = New System.Drawing.Size(93, 24)
         Me.comboEvent.TabIndex = 22
         '
         'comboDeviceSettingList
         '
         Me.comboDeviceSettingList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.comboDeviceSettingList.FormattingEnabled = True
-        Me.comboDeviceSettingList.Location = New System.Drawing.Point(142, 8)
+        Me.comboDeviceSettingList.Location = New System.Drawing.Point(189, 10)
+        Me.comboDeviceSettingList.Margin = New System.Windows.Forms.Padding(4)
         Me.comboDeviceSettingList.Name = "comboDeviceSettingList"
-        Me.comboDeviceSettingList.Size = New System.Drawing.Size(134, 21)
+        Me.comboDeviceSettingList.Size = New System.Drawing.Size(177, 24)
         Me.comboDeviceSettingList.TabIndex = 21
         '
         'turn
         '
         Me.turn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.turn.AutoSize = True
-        Me.turn.Location = New System.Drawing.Point(107, 11)
+        Me.turn.Location = New System.Drawing.Point(143, 14)
+        Me.turn.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.turn.Name = "turn"
-        Me.turn.Size = New System.Drawing.Size(25, 13)
+        Me.turn.Size = New System.Drawing.Size(33, 17)
         Me.turn.TabIndex = 20
         Me.turn.Text = "turn"
         '
@@ -116,9 +123,10 @@ Partial Class Form2
         '
         Me.lblQueueturn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblQueueturn.AutoSize = True
-        Me.lblQueueturn.Location = New System.Drawing.Point(3, 11)
+        Me.lblQueueturn.Location = New System.Drawing.Point(4, 14)
+        Me.lblQueueturn.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblQueueturn.Name = "lblQueueturn"
-        Me.lblQueueturn.Size = New System.Drawing.Size(21, 13)
+        Me.lblQueueturn.Size = New System.Drawing.Size(27, 17)
         Me.lblQueueturn.TabIndex = 20
         Me.lblQueueturn.Text = "On"
         '
@@ -130,9 +138,11 @@ Partial Class Form2
         Me.listviewSettings.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.NameC, Me.IDC, Me.EventC, Me.ActionC})
         Me.listviewSettings.FullRowSelect = True
         Me.listviewSettings.GridLines = True
-        Me.listviewSettings.Location = New System.Drawing.Point(15, 18)
+        Me.listviewSettings.HideSelection = False
+        Me.listviewSettings.Location = New System.Drawing.Point(20, 22)
+        Me.listviewSettings.Margin = New System.Windows.Forms.Padding(4)
         Me.listviewSettings.Name = "listviewSettings"
-        Me.listviewSettings.Size = New System.Drawing.Size(423, 310)
+        Me.listviewSettings.Size = New System.Drawing.Size(538, 365)
         Me.listviewSettings.TabIndex = 23
         Me.listviewSettings.UseCompatibleStateImageBehavior = False
         Me.listviewSettings.View = System.Windows.Forms.View.Details
@@ -158,23 +168,26 @@ Partial Class Form2
         'btnRemoveSetting
         '
         Me.btnRemoveSetting.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnRemoveSetting.Location = New System.Drawing.Point(323, 406)
+        Me.btnRemoveSetting.Location = New System.Drawing.Point(406, 484)
+        Me.btnRemoveSetting.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRemoveSetting.Name = "btnRemoveSetting"
-        Me.btnRemoveSetting.Size = New System.Drawing.Size(115, 23)
+        Me.btnRemoveSetting.Size = New System.Drawing.Size(153, 28)
         Me.btnRemoveSetting.TabIndex = 3
         Me.btnRemoveSetting.Text = "Remove Selected"
         Me.btnRemoveSetting.UseVisualStyleBackColor = True
         '
         'Form2
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(457, 488)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
+        Me.ClientSize = New System.Drawing.Size(584, 585)
         Me.Controls.Add(Me.listviewSettings)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnRemoveSetting)
         Me.Controls.Add(Me.Button1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MinimumSize = New System.Drawing.Size(602, 400)
         Me.Name = "Form2"
         Me.Text = "Automatic Startup/Shutdown Settings"
         Me.Panel1.ResumeLayout(False)

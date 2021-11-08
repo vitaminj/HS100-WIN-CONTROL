@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
@@ -83,72 +83,80 @@ Partial Class Form1
         'lblStep0
         '
         Me.lblStep0.AutoSize = True
-        Me.lblStep0.Location = New System.Drawing.Point(9, 9)
+        Me.lblStep0.Location = New System.Drawing.Point(12, 11)
+        Me.lblStep0.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblStep0.Name = "lblStep0"
-        Me.lblStep0.Size = New System.Drawing.Size(250, 26)
-        Me.lblStep0.TabIndex = 16
+        Me.lblStep0.Size = New System.Drawing.Size(303, 32)
+        Me.lblStep0.TabIndex = 0
         Me.lblStep0.Text = "Step 0) Log in to Kasa app with cloud account and " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "add a device to your account"
         '
         'txtEmail
         '
-        Me.txtEmail.Location = New System.Drawing.Point(12, 82)
+        Me.txtEmail.Location = New System.Drawing.Point(16, 101)
+        Me.txtEmail.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(225, 20)
-        Me.txtEmail.TabIndex = 0
+        Me.txtEmail.Size = New System.Drawing.Size(299, 22)
+        Me.txtEmail.TabIndex = 3
         '
         'lblEmail
         '
         Me.lblEmail.AutoSize = True
-        Me.lblEmail.Location = New System.Drawing.Point(10, 66)
+        Me.lblEmail.Location = New System.Drawing.Point(13, 81)
+        Me.lblEmail.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(32, 13)
-        Me.lblEmail.TabIndex = 3
+        Me.lblEmail.Size = New System.Drawing.Size(41, 16)
+        Me.lblEmail.TabIndex = 2
         Me.lblEmail.Text = "Email"
         '
         'lblPassword
         '
         Me.lblPassword.AutoSize = True
-        Me.lblPassword.Location = New System.Drawing.Point(252, 66)
+        Me.lblPassword.Location = New System.Drawing.Point(336, 81)
+        Me.lblPassword.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPassword.Name = "lblPassword"
-        Me.lblPassword.Size = New System.Drawing.Size(53, 13)
+        Me.lblPassword.Size = New System.Drawing.Size(67, 16)
         Me.lblPassword.TabIndex = 4
         Me.lblPassword.Text = "Password"
         '
         'btnUpdatelist
         '
-        Me.btnUpdatelist.Location = New System.Drawing.Point(12, 109)
+        Me.btnUpdatelist.Location = New System.Drawing.Point(16, 134)
+        Me.btnUpdatelist.Margin = New System.Windows.Forms.Padding(4)
         Me.btnUpdatelist.Name = "btnUpdatelist"
-        Me.btnUpdatelist.Size = New System.Drawing.Size(425, 23)
-        Me.btnUpdatelist.TabIndex = 5
+        Me.btnUpdatelist.Size = New System.Drawing.Size(567, 28)
+        Me.btnUpdatelist.TabIndex = 6
         Me.btnUpdatelist.Text = "Update devices list"
         Me.btnUpdatelist.UseVisualStyleBackColor = True
         '
         'lblDevlist
         '
         Me.lblDevlist.AutoSize = True
-        Me.lblDevlist.Location = New System.Drawing.Point(13, 162)
+        Me.lblDevlist.Location = New System.Drawing.Point(17, 199)
+        Me.lblDevlist.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDevlist.Name = "lblDevlist"
-        Me.lblDevlist.Size = New System.Drawing.Size(61, 13)
-        Me.lblDevlist.TabIndex = 6
+        Me.lblDevlist.Size = New System.Drawing.Size(76, 16)
+        Me.lblDevlist.TabIndex = 8
         Me.lblDevlist.Text = "Devices list"
         '
         'btnOn
         '
         Me.btnOn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnOn.Location = New System.Drawing.Point(13, 407)
+        Me.btnOn.Location = New System.Drawing.Point(17, 501)
+        Me.btnOn.Margin = New System.Windows.Forms.Padding(4)
         Me.btnOn.Name = "btnOn"
-        Me.btnOn.Size = New System.Drawing.Size(75, 23)
-        Me.btnOn.TabIndex = 7
+        Me.btnOn.Size = New System.Drawing.Size(100, 28)
+        Me.btnOn.TabIndex = 11
         Me.btnOn.Text = "Turn on"
         Me.btnOn.UseVisualStyleBackColor = True
         '
         'btnOff
         '
         Me.btnOff.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnOff.Location = New System.Drawing.Point(97, 407)
+        Me.btnOff.Location = New System.Drawing.Point(129, 501)
+        Me.btnOff.Margin = New System.Windows.Forms.Padding(4)
         Me.btnOff.Name = "btnOff"
-        Me.btnOff.Size = New System.Drawing.Size(75, 23)
-        Me.btnOff.TabIndex = 8
+        Me.btnOff.Size = New System.Drawing.Size(100, 28)
+        Me.btnOff.TabIndex = 12
         Me.btnOff.Text = "Turn off"
         Me.btnOff.UseVisualStyleBackColor = True
         '
@@ -182,11 +190,12 @@ Partial Class Form1
         Me.listviewDevices.FullRowSelect = True
         Me.listviewDevices.GridLines = True
         Me.listviewDevices.HideSelection = False
-        Me.listviewDevices.Location = New System.Drawing.Point(13, 178)
+        Me.listviewDevices.Location = New System.Drawing.Point(17, 219)
+        Me.listviewDevices.Margin = New System.Windows.Forms.Padding(4)
         Me.listviewDevices.MultiSelect = False
         Me.listviewDevices.Name = "listviewDevices"
-        Me.listviewDevices.Size = New System.Drawing.Size(607, 199)
-        Me.listviewDevices.TabIndex = 12
+        Me.listviewDevices.Size = New System.Drawing.Size(782, 244)
+        Me.listviewDevices.TabIndex = 9
         Me.listviewDevices.UseCompatibleStateImageBehavior = False
         Me.listviewDevices.View = System.Windows.Forms.View.Details
         '
@@ -207,71 +216,78 @@ Partial Class Form1
         '
         'RightClickCopy
         '
+        Me.RightClickCopy.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.RightClickCopy.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
         Me.RightClickCopy.Name = "RightClickCopy"
-        Me.RightClickCopy.Size = New System.Drawing.Size(184, 26)
+        Me.RightClickCopy.Size = New System.Drawing.Size(218, 28)
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(183, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(217, 24)
         Me.ToolStripMenuItem1.Text = "Copy ID to clipboard"
         '
         'dbgMode
         '
         Me.dbgMode.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dbgMode.AutoSize = True
-        Me.dbgMode.Location = New System.Drawing.Point(307, 528)
+        Me.dbgMode.Location = New System.Drawing.Point(409, 651)
+        Me.dbgMode.Margin = New System.Windows.Forms.Padding(4)
         Me.dbgMode.Name = "dbgMode"
-        Me.dbgMode.Size = New System.Drawing.Size(87, 17)
-        Me.dbgMode.TabIndex = 13
+        Me.dbgMode.Size = New System.Drawing.Size(108, 20)
+        Me.dbgMode.TabIndex = 18
         Me.dbgMode.Text = "Debug mode"
         Me.dbgMode.UseVisualStyleBackColor = True
         Me.dbgMode.Visible = False
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(255, 82)
+        Me.txtPassword.Location = New System.Drawing.Point(340, 101)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(182, 20)
-        Me.txtPassword.TabIndex = 14
+        Me.txtPassword.Size = New System.Drawing.Size(241, 22)
+        Me.txtPassword.TabIndex = 5
         '
         'lblStep1
         '
         Me.lblStep1.AutoSize = True
-        Me.lblStep1.Location = New System.Drawing.Point(9, 48)
+        Me.lblStep1.Location = New System.Drawing.Point(12, 59)
+        Me.lblStep1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblStep1.Name = "lblStep1"
-        Me.lblStep1.Size = New System.Drawing.Size(123, 13)
-        Me.lblStep1.TabIndex = 15
+        Me.lblStep1.Size = New System.Drawing.Size(152, 16)
+        Me.lblStep1.TabIndex = 1
         Me.lblStep1.Text = "Step 1) Enter credentials"
         '
         'lblStep2
         '
         Me.lblStep2.AutoSize = True
-        Me.lblStep2.Location = New System.Drawing.Point(12, 149)
+        Me.lblStep2.Location = New System.Drawing.Point(16, 183)
+        Me.lblStep2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblStep2.Name = "lblStep2"
-        Me.lblStep2.Size = New System.Drawing.Size(118, 13)
-        Me.lblStep2.TabIndex = 15
+        Me.lblStep2.Size = New System.Drawing.Size(145, 16)
+        Me.lblStep2.TabIndex = 7
         Me.lblStep2.Text = "Step 2) Select a device"
         '
         'lblStep3
         '
         Me.lblStep3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblStep3.AutoSize = True
-        Me.lblStep3.Location = New System.Drawing.Point(14, 391)
+        Me.lblStep3.Location = New System.Drawing.Point(19, 481)
+        Me.lblStep3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblStep3.Name = "lblStep3"
-        Me.lblStep3.Size = New System.Drawing.Size(135, 13)
-        Me.lblStep3.TabIndex = 15
+        Me.lblStep3.Size = New System.Drawing.Size(167, 16)
+        Me.lblStep3.TabIndex = 10
         Me.lblStep3.Text = "Step 3) Send it a command"
         '
         'btnCreateSettings
         '
-        Me.btnCreateSettings.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnCreateSettings.Location = New System.Drawing.Point(386, 407)
+        Me.btnCreateSettings.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCreateSettings.Location = New System.Drawing.Point(489, 501)
+        Me.btnCreateSettings.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCreateSettings.Name = "btnCreateSettings"
-        Me.btnCreateSettings.Size = New System.Drawing.Size(234, 23)
-        Me.btnCreateSettings.TabIndex = 17
+        Me.btnCreateSettings.Size = New System.Drawing.Size(312, 28)
+        Me.btnCreateSettings.TabIndex = 13
         Me.btnCreateSettings.Text = "Edit automatic startup/shutdown settings"
         Me.btnCreateSettings.UseVisualStyleBackColor = True
         '
@@ -283,29 +299,31 @@ Partial Class Form1
         '
         'ContextMenuStrip1
         '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(104, 48)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(115, 52)
         '
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(114, 24)
         Me.OpenToolStripMenuItem.Text = "Open"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(114, 24)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'btnQuit
         '
         Me.btnQuit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnQuit.Location = New System.Drawing.Point(536, 524)
+        Me.btnQuit.Location = New System.Drawing.Point(689, 645)
+        Me.btnQuit.Margin = New System.Windows.Forms.Padding(4)
         Me.btnQuit.Name = "btnQuit"
-        Me.btnQuit.Size = New System.Drawing.Size(84, 23)
-        Me.btnQuit.TabIndex = 18
+        Me.btnQuit.Size = New System.Drawing.Size(112, 28)
+        Me.btnQuit.TabIndex = 19
         Me.btnQuit.Text = "Quit Program"
         Me.btnQuit.UseVisualStyleBackColor = True
         '
@@ -317,10 +335,11 @@ Partial Class Form1
         '
         Me.StartInTray.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.StartInTray.AutoSize = True
-        Me.StartInTray.Location = New System.Drawing.Point(12, 529)
+        Me.StartInTray.Location = New System.Drawing.Point(16, 652)
+        Me.StartInTray.Margin = New System.Windows.Forms.Padding(4)
         Me.StartInTray.Name = "StartInTray"
-        Me.StartInTray.Size = New System.Drawing.Size(114, 17)
-        Me.StartInTray.TabIndex = 19
+        Me.StartInTray.Size = New System.Drawing.Size(140, 20)
+        Me.StartInTray.TabIndex = 16
         Me.StartInTray.Text = "Start in system tray"
         Me.StartInTray.UseVisualStyleBackColor = True
         '
@@ -328,14 +347,16 @@ Partial Class Form1
         '
         Me.lblQueuetitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblQueuetitle.AutoSize = True
-        Me.lblQueuetitle.Location = New System.Drawing.Point(14, 449)
+        Me.lblQueuetitle.Location = New System.Drawing.Point(19, 553)
+        Me.lblQueuetitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblQueuetitle.Name = "lblQueuetitle"
-        Me.lblQueuetitle.Size = New System.Drawing.Size(93, 13)
-        Me.lblQueuetitle.TabIndex = 20
+        Me.lblQueuetitle.Size = New System.Drawing.Size(117, 16)
+        Me.lblQueuetitle.TabIndex = 14
         Me.lblQueuetitle.Text = "Queue commands"
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.btnExtend)
         Me.Panel1.Controls.Add(Me.btnQueue)
@@ -349,128 +370,142 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.lblQueueafter)
         Me.Panel1.Controls.Add(Me.lblQueueturn)
-        Me.Panel1.Location = New System.Drawing.Point(12, 465)
+        Me.Panel1.Location = New System.Drawing.Point(16, 572)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(608, 38)
-        Me.Panel1.TabIndex = 21
+        Me.Panel1.Size = New System.Drawing.Size(797, 47)
+        Me.Panel1.TabIndex = 15
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(541, 8)
+        Me.Button1.Location = New System.Drawing.Point(721, 10)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(48, 23)
-        Me.Button1.TabIndex = 26
+        Me.Button1.Size = New System.Drawing.Size(64, 28)
+        Me.Button1.TabIndex = 12
         Me.Button1.Text = "Reset"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'btnExtend
         '
-        Me.btnExtend.Location = New System.Drawing.Point(484, 8)
+        Me.btnExtend.Location = New System.Drawing.Point(645, 10)
+        Me.btnExtend.Margin = New System.Windows.Forms.Padding(4)
         Me.btnExtend.Name = "btnExtend"
-        Me.btnExtend.Size = New System.Drawing.Size(51, 23)
-        Me.btnExtend.TabIndex = 25
+        Me.btnExtend.Size = New System.Drawing.Size(68, 28)
+        Me.btnExtend.TabIndex = 11
         Me.btnExtend.Text = "Extend"
         Me.btnExtend.UseVisualStyleBackColor = True
         '
         'btnQueue
         '
-        Me.btnQueue.Location = New System.Drawing.Point(430, 8)
+        Me.btnQueue.Location = New System.Drawing.Point(573, 10)
+        Me.btnQueue.Margin = New System.Windows.Forms.Padding(4)
         Me.btnQueue.Name = "btnQueue"
-        Me.btnQueue.Size = New System.Drawing.Size(47, 23)
-        Me.btnQueue.TabIndex = 24
+        Me.btnQueue.Size = New System.Drawing.Size(63, 28)
+        Me.btnQueue.TabIndex = 10
         Me.btnQueue.Text = "Queue"
         Me.btnQueue.UseVisualStyleBackColor = True
         '
         'sec
         '
-        Me.sec.Location = New System.Drawing.Point(374, 8)
+        Me.sec.Location = New System.Drawing.Point(499, 10)
+        Me.sec.Margin = New System.Windows.Forms.Padding(4)
         Me.sec.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.sec.Name = "sec"
-        Me.sec.Size = New System.Drawing.Size(37, 20)
-        Me.sec.TabIndex = 23
+        Me.sec.Size = New System.Drawing.Size(49, 22)
+        Me.sec.TabIndex = 8
         '
         'min
         '
-        Me.min.Location = New System.Drawing.Point(315, 8)
+        Me.min.Location = New System.Drawing.Point(420, 10)
+        Me.min.Margin = New System.Windows.Forms.Padding(4)
         Me.min.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.min.Name = "min"
-        Me.min.Size = New System.Drawing.Size(37, 20)
-        Me.min.TabIndex = 23
+        Me.min.Size = New System.Drawing.Size(49, 22)
+        Me.min.TabIndex = 6
         '
         'hrs
         '
-        Me.hrs.Location = New System.Drawing.Point(256, 8)
+        Me.hrs.Location = New System.Drawing.Point(341, 10)
+        Me.hrs.Margin = New System.Windows.Forms.Padding(4)
         Me.hrs.Name = "hrs"
-        Me.hrs.Size = New System.Drawing.Size(37, 20)
-        Me.hrs.TabIndex = 23
+        Me.hrs.Size = New System.Drawing.Size(49, 22)
+        Me.hrs.TabIndex = 4
         '
         'comboQueuestatus
         '
         Me.comboQueuestatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.comboQueuestatus.FormattingEnabled = True
         Me.comboQueuestatus.Items.AddRange(New Object() {"Off", "On"})
-        Me.comboQueuestatus.Location = New System.Drawing.Point(164, 8)
+        Me.comboQueuestatus.Location = New System.Drawing.Point(219, 10)
+        Me.comboQueuestatus.Margin = New System.Windows.Forms.Padding(4)
         Me.comboQueuestatus.Name = "comboQueuestatus"
-        Me.comboQueuestatus.Size = New System.Drawing.Size(52, 21)
-        Me.comboQueuestatus.TabIndex = 22
+        Me.comboQueuestatus.Size = New System.Drawing.Size(68, 24)
+        Me.comboQueuestatus.TabIndex = 2
         '
         'comboDeviceQueueList
         '
         Me.comboDeviceQueueList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.comboDeviceQueueList.FormattingEnabled = True
-        Me.comboDeviceQueueList.Location = New System.Drawing.Point(37, 8)
+        Me.comboDeviceQueueList.Location = New System.Drawing.Point(49, 10)
+        Me.comboDeviceQueueList.Margin = New System.Windows.Forms.Padding(4)
         Me.comboDeviceQueueList.Name = "comboDeviceQueueList"
-        Me.comboDeviceQueueList.Size = New System.Drawing.Size(121, 21)
-        Me.comboDeviceQueueList.TabIndex = 21
+        Me.comboDeviceQueueList.Size = New System.Drawing.Size(160, 24)
+        Me.comboDeviceQueueList.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(222, 11)
+        Me.Label2.Location = New System.Drawing.Point(296, 14)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(28, 13)
-        Me.Label2.TabIndex = 20
+        Me.Label2.Size = New System.Drawing.Size(33, 16)
+        Me.Label2.TabIndex = 3
         Me.Label2.Text = "after"
         '
         'Label1
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(292, 12)
+        Me.Label1.Location = New System.Drawing.Point(389, 15)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(21, 13)
-        Me.Label1.TabIndex = 20
+        Me.Label1.Size = New System.Drawing.Size(23, 16)
+        Me.Label1.TabIndex = 5
         Me.Label1.Text = "H :"
         '
         'Label3
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(410, 12)
+        Me.Label3.Location = New System.Drawing.Point(547, 15)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(14, 13)
-        Me.Label3.TabIndex = 20
+        Me.Label3.Size = New System.Drawing.Size(16, 16)
+        Me.Label3.TabIndex = 9
         Me.Label3.Text = "S"
         '
         'lblQueueafter
         '
         Me.lblQueueafter.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblQueueafter.AutoSize = True
-        Me.lblQueueafter.Location = New System.Drawing.Point(351, 12)
+        Me.lblQueueafter.Location = New System.Drawing.Point(468, 15)
+        Me.lblQueueafter.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblQueueafter.Name = "lblQueueafter"
-        Me.lblQueueafter.Size = New System.Drawing.Size(22, 13)
-        Me.lblQueueafter.TabIndex = 20
+        Me.lblQueueafter.Size = New System.Drawing.Size(24, 16)
+        Me.lblQueueafter.TabIndex = 7
         Me.lblQueueafter.Text = "M :"
         '
         'lblQueueturn
         '
         Me.lblQueueturn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblQueueturn.AutoSize = True
-        Me.lblQueueturn.Location = New System.Drawing.Point(3, 11)
+        Me.lblQueueturn.Location = New System.Drawing.Point(4, 14)
+        Me.lblQueueturn.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblQueueturn.Name = "lblQueueturn"
-        Me.lblQueueturn.Size = New System.Drawing.Size(32, 13)
-        Me.lblQueueturn.TabIndex = 20
+        Me.lblQueueturn.Size = New System.Drawing.Size(37, 16)
+        Me.lblQueueturn.TabIndex = 0
         Me.lblQueueturn.Text = "Turn "
         '
         'tick
@@ -481,18 +516,19 @@ Partial Class Form1
         '
         Me.StartWithWin.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.StartWithWin.AutoSize = True
-        Me.StartWithWin.Location = New System.Drawing.Point(132, 528)
+        Me.StartWithWin.Location = New System.Drawing.Point(176, 651)
+        Me.StartWithWin.Margin = New System.Windows.Forms.Padding(4)
         Me.StartWithWin.Name = "StartWithWin"
-        Me.StartWithWin.Size = New System.Drawing.Size(114, 17)
-        Me.StartWithWin.TabIndex = 22
+        Me.StartWithWin.Size = New System.Drawing.Size(135, 20)
+        Me.StartWithWin.TabIndex = 17
         Me.StartWithWin.Text = "Start with windows"
         Me.StartWithWin.UseVisualStyleBackColor = True
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(632, 559)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
+        Me.ClientSize = New System.Drawing.Size(817, 688)
         Me.Controls.Add(Me.StartWithWin)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblQueuetitle)
@@ -514,6 +550,8 @@ Partial Class Form1
         Me.Controls.Add(Me.lblEmail)
         Me.Controls.Add(Me.txtEmail)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MinimumSize = New System.Drawing.Size(835, 600)
         Me.Name = "Form1"
         Me.Text = "TP-Link HS100 WiFi Socket Controller"
         Me.RightClickCopy.ResumeLayout(False)

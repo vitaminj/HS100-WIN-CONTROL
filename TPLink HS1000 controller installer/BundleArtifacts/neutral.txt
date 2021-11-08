@@ -1,0 +1,1 @@
+MainPackage=C:\VJ\HS100-WIN-CONTROL\TPLink HS1000 controller installer\bin\AnyCPU\Release\TPLink HS1000 controller installer_2.0.2.0_AnyCPU.msix
