@@ -14,7 +14,30 @@ Public Class Form1
     Dim cmdflag = False
     Dim GracefulExitFlag = False
 
+    Private Sub addDevice(name As String, status As String, id As String, appServerUrl As String, state As String)
+        Dim newItem = listviewDevices.Items.Add(name)
+        comboDeviceQueueList.Items.Add(name)
+        newItem.SubItems.Add(status)
+        newItem.SubItems.Add(id)
+        newItem.SubItems.Add(appServerUrl)
+        newItem.SubItems.Add(state)
+        newItem.SubItems.Add("-")
+        newItem.SubItems.Add("-")
 
+        If (status = "1") Then
+            trayicon = New NotifyIcon
+            Me.components.Add(trayicon) ' add the trayicon to the form components so it can be managed later
+            trayicon.Text = name
+            If (state = "1") Then
+                trayicon.Icon = My.Resources.icoOn
+            Else
+                trayicon.Icon = My.Resources.icoOff
+            End If
+            trayicon.Tag = id
+            AddHandler trayicon.MouseClick, AddressOf OnIconMouseClick
+            trayicon.Visible = True
+        End If
+    End Sub
     Private Sub btnUpdatelist_Click(sender As Object, e As EventArgs) Handles btnUpdatelist.Click
 
         'get the list of devices
@@ -26,33 +49,19 @@ Public Class Form1
             listviewDevices.Items.Clear() 'clear all old devices from listbox
             clearAllNotifyicons() 'clear all old device notifyicons from taskbar
             comboDeviceQueueList.Items.Clear() 'clear all old devices from queue menu
-            Dim i As Integer = 0
             For Each child As JObject In devices
-                listviewDevices.Items.Add(child("alias").ToString)
-                comboDeviceQueueList.Items.Add(child("alias").ToString)
-                listviewDevices.Items(i).SubItems.Add(child("status").ToString)
-                listviewDevices.Items(i).SubItems.Add(child("deviceId").ToString)
-                listviewDevices.Items(i).SubItems.Add(child("appServerUrl").ToString)
-                If (child("status").ToString = "1") Then listviewDevices.Items(i).SubItems.Add(getstate(child("deviceId").ToString, child("appServerUrl").ToString).ToString) Else listviewDevices.Items(i).SubItems.Add("-")
-
-                listviewDevices.Items(i).SubItems.Add("-")
-                listviewDevices.Items(i).SubItems.Add("-")
-
-                If (child("status").ToString = "1") Then
-                    trayicon = New NotifyIcon
-                    Me.components.Add(trayicon) ' add the trayicon to the form components so it can be managed later
-                    trayicon.Text = child("alias").ToString
-                    If getstate(child("deviceId").ToString, child("appServerUrl").ToString) Then
-                        trayicon.Icon = My.Resources.icoOn
-                    Else
-                        trayicon.Icon = My.Resources.icoOff
-                    End If
-                    trayicon.Tag = child("deviceId").ToString
-                    AddHandler trayicon.MouseClick, AddressOf OnIconMouseClick
-                    trayicon.Visible = True
+                If (child("deviceModel").ToString.StartsWith("KP303(")) Then
+                    Dim subdevices = getsubdevices(child("deviceId"), child("appServerUrl").ToString)
+                    For Each subdevice As JObject In subdevices
+                        Dim idTuple = child("deviceId").ToString & "." & subdevice("id").ToString
+                        addDevice(subdevice("alias"), child("status"), idTuple, child("appServerUrl"), subdevice("state"))
+                    Next
+                Else
+                    Dim state = IIf(child("status").ToString = "1", getstate(child("deviceId"), child("appServerUrl")), "-")
+                    addDevice(child("alias"), child("status"), child("deviceId"), child("appServerUrl"), state)
                 End If
 
-                i += 1
+
             Next
             If dbgMode.Checked Then MsgBox(lsto.ToString)
 
@@ -104,7 +113,6 @@ Public Class Form1
         If (o("error_code").ToString) = "0" Then
             Return (o("result")("token").ToString)
         Else
-            MsgBox("An error occured while logging in or getting a token" & Environment.NewLine & o.ToString)
             Return "-1"
         End If
     End Function
@@ -322,17 +330,23 @@ Public Class Form1
         'if left click, toggle switch state
         If (e.Button = Windows.Forms.MouseButtons.Left) Then
             Dim tempnotify As NotifyIcon = CType(sender, NotifyIcon) 'get the sender object to extract tag (deviceid)
-
+            Dim deviceId = tempnotify.Tag.ToString
+            Dim extraPayload = ""
             For Each row As ListViewItem In listviewDevices.Items
-                If row.SubItems(2).Text = tempnotify.Tag Then
+                If row.SubItems(2).Text = deviceId Then
+                    If (deviceId.Contains(".")) Then
+                        Dim dd = deviceId.Split(".")
+                        deviceId = dd(0)
+                        extraPayload = "\""context\"": {\""child_ids\"": [\""" & dd(1) & "\""]},"
+                    End If
                     If getstate(tempnotify.Tag, row.SubItems(3).Text) Then
                         'currently on, turn off
-                        Dim command As String = "{""method"":""passthrough"",""params"": {""deviceId"": """ & tempnotify.Tag & """,""requestData"": ""{\""system\"":{\""set_relay_state\"":{\""state\"":0}}}"" }}"
+                        Dim command As String = "{""method"":""passthrough"",""params"": {""deviceId"": """ & deviceId & """,""requestData"": ""{" & extraPayload & "\""system\"":{\""set_relay_state\"":{\""state\"":0}}}"" }}"
                         Dim serverresp As String = (sendreq(row.SubItems(3).Text & "?token=" & gettoken(), command))
                         DirectCast(sender, NotifyIcon).Icon = My.Resources.icoOff
                     Else
                         'currently off, turn on
-                        Dim command As String = "{""method"":""passthrough"",""params"": {""deviceId"": """ & tempnotify.Tag & """,""requestData"": ""{\""system\"":{\""set_relay_state\"":{\""state\"":1}}}"" }}"
+                        Dim command As String = "{""method"":""passthrough"",""params"": {""deviceId"": """ & deviceId & """,""requestData"": ""{" & extraPayload & "\""system\"":{\""set_relay_state\"":{\""state\"":1}}}"" }}"
                         Dim serverresp As String = (sendreq(row.SubItems(3).Text & "?token=" & gettoken(), command))
                         DirectCast(sender, NotifyIcon).Icon = My.Resources.icoOn
                     End If
@@ -341,8 +355,8 @@ Public Class Form1
             Next
         End If
 
-        'if right click, open app window
-        If (e.Button = Windows.Forms.MouseButtons.Right) Then
+            'if right click, open app window
+            If (e.Button = Windows.Forms.MouseButtons.Right) Then
             Me.WindowState = FormWindowState.Normal
             Me.FormBorderStyle = Windows.Forms.FormBorderStyle.Sizable
             Me.ShowInTaskbar = True
@@ -350,16 +364,43 @@ Public Class Form1
     End Sub
 
     Function getstate(deviceid As String, appserverurl As String) As Boolean
+        If (deviceid.Contains(".")) Then
+            Dim dd = deviceid.Split(".")
+            Dim subdevices = getsubdevices(dd(0), appserverurl)
+            For Each subdevice As JObject In subdevices
+                If (subdevice("id") = dd(1)) Then
+                    Return subdevice("state").ToString
+                End If
+            Next
+            Return "-1"
+        End If
+
         'Check the state using deviceId and appServerUrl
         Dim command As String = "{""method"":""passthrough"", ""params"": {""deviceId"": """ & deviceid & """, ""requestData"": ""{\""system\"":{\""get_sysinfo\"":null},\""emeter\"":{\""get_realtime\"":null}}"" }}"
         Dim serverresp As String = (sendreq(appserverurl & "?token=" & gettoken(), command))
         Dim joresponse As JObject = JObject.Parse(serverresp)
         If (joresponse("error_code").ToString) = "0" Then
             Dim jorespdta As JObject = JObject.Parse(joresponse("result")("responseData"))
-            Return (jorespdta("system")("get_sysinfo")("relay_state").ToString)
-        Else
-            MsgBox("An error occured while logging in or getting a token" & Environment.NewLine & joresponse.ToString)
+            Dim children = jorespdta("system")("get_sysinfo")("children")
+            If (children Is Nothing) Then
+                Return (jorespdta("system")("get_sysinfo")("relay_state").ToString)
+            End If
             Return "-1"
+        Else
+            Return "-1"
+        End If
+    End Function
+
+    Function getsubdevices(deviceid As String, appserverurl As String) As JArray
+        'Check the state using deviceId and appServerUrl
+        Dim command As String = "{""method"":""passthrough"", ""params"": {""deviceId"": """ & deviceid & """, ""requestData"": ""{\""system\"":{\""get_sysinfo\"":null},\""emeter\"":{\""get_realtime\"":null}}"" }}"
+        Dim serverresp As String = (sendreq(appserverurl & "?token=" & gettoken(), command))
+        Dim joresponse As JObject = JObject.Parse(serverresp)
+        If (joresponse("error_code").ToString) = "0" Then
+            Dim jorespdta As JObject = JObject.Parse(joresponse("result")("responseData"))
+            Return jorespdta("system")("get_sysinfo")("children")
+        Else
+            Return Nothing
         End If
     End Function
 
